@@ -1,15 +1,15 @@
 {
   "name": "ecommerce-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "E-Commerce API with Node.js, PostgreSQL, and Stripe",
+  "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "migrate": "node src/migrations/001-create-tables.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ecommerce", "api", "nodejs", "postgresql", "stripe"],
+  "author": "Lemayian23",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
