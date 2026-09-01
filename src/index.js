@@ -6,6 +6,8 @@ const morgan = require('morgan');
 
 // Import routes
 const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 
 // Load environment variables
 dotenv.config();
@@ -29,6 +31,17 @@ app.get('/', (req, res) => {
       auth: {
         register: 'POST /api/auth/register',
         login: 'POST /api/auth/login'
+      },
+      products: {
+        list: 'GET /api/products',
+        create: 'POST /api/products (Admin only)',
+        get: 'GET /api/products/:id',
+        update: 'PUT /api/products/:id (Admin only)',
+        delete: 'DELETE /api/products/:id (Admin only)'
+      },
+      orders: {
+        create: 'POST /api/orders',
+        myOrders: 'GET /api/orders/my-orders'
       }
     }
   });
@@ -40,6 +53,8 @@ app.get('/health', (req, res) => {
 
 // API routes
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -52,4 +67,6 @@ app.listen(PORT, () => {
   console.log(`🚀 E-Commerce API running on http://localhost:${PORT}`);
   console.log(`📊 Health check: http://localhost:${PORT}/health`);
   console.log(`🔐 Auth endpoints: http://localhost:${PORT}/api/auth`);
+  console.log(`📦 Products: http://localhost:${PORT}/api/products`);
+  console.log(`🛒 Orders: http://localhost:${PORT}/api/orders`);
 });
