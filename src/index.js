@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
+const paymentRoutes = require('./routes/paymentRoutes');
 
 // Import routes
 const authRoutes = require('./routes/authRoutes');
@@ -55,6 +56,8 @@ app.get('/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api/payments', paymentRoutes);
+app.use('/api/payments/webhook', express.raw({ type: 'application/json' }));
 
 // Error handling middleware
 app.use((err, req, res, next) => {
