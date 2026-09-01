@@ -8,7 +8,13 @@
     "dev": "nodemon src/index.js",
     "migrate": "node src/migrations/001-create-tables.js"
   },
-  "keywords": ["ecommerce", "api", "nodejs", "postgresql", "stripe"],
+  "keywords": [
+    "ecommerce",
+    "api",
+    "nodejs",
+    "postgresql",
+    "stripe"
+  ],
   "author": "Lemayian23",
   "license": "ISC",
   "type": "commonjs",
